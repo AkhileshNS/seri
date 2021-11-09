@@ -1,0 +1,24 @@
+{
+  "name": "seri",
+  "version": "1.0.0",
+  "description": "A tool to find bugs in JavaScript & React using Formal verification",
+  "main": "seri.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node seri",
+    "prettier": "prettier main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkhileshNS/seri.git"
+  },
+  "author": "AkhileshNS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AkhileshNS/seri/issues"
+  },
+  "homepage": "https://github.com/AkhileshNS/seri#readme",
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  }
+}
