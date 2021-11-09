@@ -1,14 +1,22 @@
 {
-  "lines": [{
-    "context": "Init-Constant",
-    "name": "a",
-    "value": "1",
-    "type": "number"
-  }, {
-    "context": "Init-Constant",
-    "name": "b",
-    "value": "2",
-    "type": "number"
-  }],
-  "states": [{}, {"a": 1}, {"a": 1, "b": 2}]
+  "lines": [
+    {
+      "context": "Init-Constant",
+      "name": "a",
+      "value": "1",
+      "type": "number"
+    },
+    {
+      "context": "Init-Constant",
+      "name": "b",
+      "value": "\"Hello\"",
+      "type": "string"
+    },
+    {
+      "context": "Init-Constant",
+      "name": "c",
+      "value": "false",
+      "type": "boolean"
+    }
+  ]
 }

@@ -47,4 +47,4 @@ for (let match of matches) {
 }
 /* STEP 6: Create the "execution.json" file with parsed_output */
 const executionJsonPath = path.join(process.cwd(), "execution.json");
-fs.writeFileSync(executionJsonPath, JSON.stringify({lines: parsed_output}), 'utf8');
+fs.writeFileSync(executionJsonPath, JSON.stringify({lines: parsed_output}, null, 2), 'utf8');
