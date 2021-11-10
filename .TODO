@@ -4,9 +4,9 @@
 
 - [ ] Work on v1 of the structure of the execution.json
 
-- [ ] Work on v1 of the "PREDEFINED" in alloy
+- [x] Work on v1 of the "PREDEFINED" in alloy
 
-- [ ] Work on v1 of the "COMPILED" in alloy
+- [x] Work on v1 of the "COMPILED" in alloy
 
 - [ ] Wire "izalus" to read the output of alloy and check if any counterexamples show up
 
