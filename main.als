@@ -1,3 +1,10 @@
+/**
+  * @Context types
+  * Init-Constant - "const a = 1;" 
+  * Init-Variable - "let a = 1;"
+  * Set-Value - "a = 1";
+  */
+
 // @Predefined "Signatures"
 // abstract sig Context {}
 // one sig InitConstant extends Context {}
@@ -51,16 +58,22 @@ one sig L3 extends Line {}{
   value = "false"
   type = "boolean"
 }
+one sig L4 extends Line {}{
+  context = "Init-Constant"
+  name = "c"
+  value = "false"
+  type = "boolean"
+}
 
 pred execute[e:Execution] {
-  exists[e, L1 + L2 + L3]
+  exists[e, L1 + L2 + L3 + L4]
 }
 // @End
 
 // @Predefined "Assertions"
 assert ConstantsNeverChange {
   all e:Execution | execute[e] => (
-    all l:e.lines.elems | l.name != "Init-Constant"
+    all l:e.lines.elems | l.name != "Set-Value"
   )
 }
 
