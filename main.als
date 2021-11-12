@@ -1,8 +1,8 @@
 /**
   * @Context types
-  * Init-Constant - "const a = 1;" 
-  * Init-Variable - "let a = 1;"
-  * Set-Value - "a = 1";
+  * Init-Constant - "const b = 1;" 
+  * Init-Variable - "let b = 1;"
+  * Set-Value - "b = 1";
   */
 
 // @Predefined "Signatures"
