@@ -53,15 +53,15 @@ one sig L2 extends Line {}{
   type = "string"
 }
 one sig L3 extends Line {}{
-  context = "Init-Constant"
+  context = "Init-Variable"
   name = "c"
   value = "false"
   type = "boolean"
 }
 one sig L4 extends Line {}{
-  context = "Init-Constant"
+  context = "Set-Value"
   name = "c"
-  value = "false"
+  value = "true"
   type = "boolean"
 }
 
@@ -73,7 +73,9 @@ pred execute[e:Execution] {
 // @Predefined "Assertions"
 assert ConstantsNeverChange {
   all e:Execution | execute[e] => (
-    all l:e.lines.elems | l.name != "Set-Value"
+    all l:e.lines.elems | l.context = "Init-Constant" => (
+      no l2:e.lines.elems - l | l2.context = "Set-Value" and l2.name = l.name
+    ) 
   )
 }
 
