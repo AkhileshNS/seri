@@ -10,19 +10,19 @@
       "context": "Init-Constant",
       "name": "b",
       "value": "\"Hello\"",
-      "type": "number"
+      "type": "string"
     },
     {
       "context": "Init-Variable",
-      "name": "c",
+      "name": "donkey",
       "value": "false",
-      "type": "number"
+      "type": "boolean"
     },
     {
       "context": "Set-Value",
-      "name": "c",
+      "name": "donkey",
       "value": "true",
-      "type": "number"
+      "type": "boolean"
     }
   ]
 }

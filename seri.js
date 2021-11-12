@@ -7,14 +7,26 @@ const prettier = require('prettier');
 
 // Helper function
 const getType = s => 
-  s==="true" || s==="false"              ? "boolean" :
-  s[0]==='"' || s[0]==="'" || s[0]==="`" ? "string"  :
+  (s==="true" || s==="false")              ? "boolean" :
+  (s[0]==='"' || s[0]==="'" || s[0]==="`") ? "string"  :
   "number"
 
 const getContext = s => 
   s==="const" ? "Init-Constant" :
   s==="let"   ? "Init-Variable" :
   "Set-Value"
+
+const generateLs = num => {
+  let res = "";
+  for (let i=1; i<=num; i++) {
+    if (i!==num) {
+      res += `L${i} + `
+    } else {
+      res += `L${i}`
+    }
+  }
+  return res;
+}
 
 // Get CLI Args
 const args = process.argv.slice(2);
@@ -48,7 +60,7 @@ for (let match of matches) {
     const context = getContext(output[1]);
     const name = output[2];
     const value = output[3];
-    const type = getType(output[2]);
+    const type = getType(output[3]);
     parsed_output.push({context, name, value, type});
   }
 }
@@ -60,23 +72,20 @@ fs.writeFileSync(executionJsonPath, JSON.stringify({lines: parsed_output}, null,
 /* STEP 7: Go into main.als and change the @Generated block */
 const mainAlsPath = path.join(process.cwd(), "main.als");
 const mainAlsContent = fs.readFileSync(mainAlsPath, "utf8");
-const mainAlsContentArray = mainAlsContent.split("// @Generated");
-const mainAlsContentArrayProcessed = [
-  mainAlsContentArray[0],
-  ...mainAlsContentArray[1].split("// @End")
-];
-mainAlsContentArrayProcessed[1] = parsed_output.map((val, index) => `
-one sig L${index+1} extends Line {}{
+const parsed_output_als = parsed_output.map((val, index) => `
+one sig L${index + 1} extends Line {}{
   context = "${val.context}"
   name = "${val.name}"
-  value = "${val.value}"
+  value = ${JSON.stringify(val.value)}
   type = "${val.type}"
 }
-`)
-const mainAlsNewContent = 
-  mainAlsContentArrayProcessed[0] + 
-  "\n// @Generated\n" +
-  mainAlsContentArrayProcessed[1]
-  "\n// @End\n" +
-  mainAlsContentArrayProcessed[2]
+`).join("") + `
+pred execute[e:Execution] {
+  exists[e, ${generateLs(parsed_output.length)}]
+}
+`;
+const mainAlsNewContent = mainAlsContent.replace(
+  /\/\/ @Start\:Generated(.|\n|\r\n)*\/\/ @End\:Generated/gm,
+  `// @Start:Generated${parsed_output_als}// @End:Generated`
+);
 fs.writeFileSync(mainAlsPath, mainAlsNewContent, "utf8");

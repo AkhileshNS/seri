@@ -1,6 +1,6 @@
-- [x] A CLI Tool called "izalus" which when run does the following
+- [x] A CLI Tool called "seri" which when run does the following
   - [x] Takes a JS file, parses it and constructs an execution.json file
-  - [ ] Takes the execution.json file and converts to alloy predicate & function calls
+  - [x] Takes the execution.json file and converts to alloy predicate & function calls
 
 - [ ] Work on v1 of the structure of the execution.json
 
@@ -8,6 +8,6 @@
 
 - [x] Work on v1 of the "COMPILED" in alloy
 
-- [ ] Wire "izalus" to read the output of alloy and check if any counterexamples show up
+- [ ] Wire "seri" to read the output of alloy and check if any counterexamples show up
 
 - [ ] Switch over to TypeScript
