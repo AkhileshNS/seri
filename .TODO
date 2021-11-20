@@ -12,7 +12,9 @@
 
 ### NEXT TODO
 
-- [ ] Switch over to TypeScript
+- [x] Switch over to TypeScript
+
+- [ ] Modularize our code
 
 - [ ] Find an ast generator and start using it to create a stripped down JSON of the generated AST
 

@@ -2,7 +2,7 @@
   "name": "seri",
   "version": "1.0.0",
   "description": "A tool to find bugs in JavaScript & React using Formal verification",
-  "main": "seri.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "tsc && node dist/index",
     "start": "tsc && node dist/seri",
@@ -18,10 +18,15 @@
     "url": "https://github.com/AkhileshNS/seri/issues"
   },
   "homepage": "https://github.com/AkhileshNS/seri#readme",
+  "dependencies": {
+    "acorn": "^8.6.0",
+    "prettier": "^2.4.1"
+  },
   "devDependencies": {
+    "@types/acorn": "^4.0.6",
     "@types/node": "^16.11.9",
     "@types/prettier": "^2.4.2",
-    "prettier": "^2.4.1",
+    "tslint": "^6.1.3",
     "typescript": "^4.5.2"
   }
 }

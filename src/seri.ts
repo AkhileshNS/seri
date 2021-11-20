@@ -52,6 +52,10 @@ const exp = /(const|let)?[ ]?(\w+) = (((\w+|\d+)|["'`](\w+|\d+)["'`])|(["'`]|\n)
 /* STEP 4: Parse the expression */
 const matches = formatted_output.match(exp);
 
+if (matches===null) {
+  process.exit(0);
+}
+
 /* STEP 5: Loop through and extract information */
 const parsed_output = [];
 for (let match of matches) {
