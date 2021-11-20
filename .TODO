@@ -14,9 +14,11 @@
 
 - [x] Switch over to TypeScript
 
-- [ ] Modularize our code
+- [x] Modularize our code
 
-- [ ] Find an ast generator and start using it to create a stripped down JSON of the generated AST
+- [x] Find an ast generator and start using it to create a stripped down JSON of the generated AST
+
+- [ ] Setup CLI Tool `commander`
 
 - [ ] Create a tool which takes the JSON and create an Alloy representation of the JSON
 

@@ -1,0 +1,110 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 74,
+  "body": [
+    {
+      "type": "VariableDeclaration",
+      "start": 0,
+      "end": 14,
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "start": 6,
+          "end": 13,
+          "id": {
+            "type": "Identifier",
+            "start": 6,
+            "end": 9,
+            "name": "num"
+          },
+          "init": {
+            "type": "Literal",
+            "start": 12,
+            "end": 13,
+            "value": 2,
+            "raw": "2"
+          }
+        }
+      ],
+      "kind": "const"
+    },
+    {
+      "type": "VariableDeclaration",
+      "start": 16,
+      "end": 29,
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "start": 20,
+          "end": 28,
+          "id": {
+            "type": "Identifier",
+            "start": 20,
+            "end": 23,
+            "name": "age"
+          },
+          "init": {
+            "type": "Literal",
+            "start": 26,
+            "end": 28,
+            "value": 21,
+            "raw": "21"
+          }
+        }
+      ],
+      "kind": "let"
+    },
+    {
+      "type": "VariableDeclaration",
+      "start": 31,
+      "end": 53,
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "start": 35,
+          "end": 52,
+          "id": {
+            "type": "Identifier",
+            "start": 35,
+            "end": 39,
+            "name": "name"
+          },
+          "init": {
+            "type": "Literal",
+            "start": 42,
+            "end": 52,
+            "value": "Akhilesh",
+            "raw": "\"Akhilesh\""
+          }
+        }
+      ],
+      "kind": "let"
+    },
+    {
+      "type": "ExpressionStatement",
+      "start": 55,
+      "end": 74,
+      "expression": {
+        "type": "AssignmentExpression",
+        "start": 55,
+        "end": 73,
+        "operator": "=",
+        "left": {
+          "type": "Identifier",
+          "start": 55,
+          "end": 59,
+          "name": "name"
+        },
+        "right": {
+          "type": "Literal",
+          "start": 62,
+          "end": 73,
+          "value": "Akhilesh1",
+          "raw": "\"Akhilesh1\""
+        }
+      }
+    }
+  ],
+  "sourceType": "script"
+}
