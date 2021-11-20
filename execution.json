@@ -2,27 +2,27 @@
   "lines": [
     {
       "context": "Init-Constant",
-      "name": "a",
-      "value": "1",
+      "name": "num",
+      "value": "2",
+      "type": "number"
+    },
+    {
+      "context": "Init-Variable",
+      "name": "age",
+      "value": "21",
       "type": "number"
     },
     {
       "context": "Init-Constant",
-      "name": "b",
-      "value": "\"Hello\"",
+      "name": "name",
+      "value": "\"Akhilesh\"",
       "type": "string"
     },
     {
-      "context": "Init-Variable",
-      "name": "donkey",
-      "value": "false",
-      "type": "boolean"
-    },
-    {
       "context": "Set-Value",
-      "name": "donkey",
-      "value": "true",
-      "type": "boolean"
+      "name": "name",
+      "value": "\"Akhilesh1\"",
+      "type": "string"
     }
   ]
 }

@@ -1,4 +1,4 @@
-const a = 1; // Number
-const b = "Hello"; // String
-let donkey = false; // Boolean
-donkey = true;
+const num = 2;
+let age = 21;
+const name = "Akhilesh";
+name = "Akhilesh1";

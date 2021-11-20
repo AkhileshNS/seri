@@ -42,30 +42,30 @@ pred exists[e:Execution, ls:set Line] {
 // @Start:Generated
 one sig L1 extends Line {}{
   context = "Init-Constant"
-  name = "a"
-  value = "1"
+  name = "num"
+  value = "2"
   type = "number"
 }
 
 one sig L2 extends Line {}{
-  context = "Init-Constant"
-  name = "b"
-  value = "\"Hello\""
-  type = "string"
+  context = "Init-Variable"
+  name = "age"
+  value = "21"
+  type = "number"
 }
 
 one sig L3 extends Line {}{
-  context = "Init-Variable"
-  name = "donkey"
-  value = "false"
-  type = "boolean"
+  context = "Init-Constant"
+  name = "name"
+  value = "\"Akhilesh\""
+  type = "string"
 }
 
 one sig L4 extends Line {}{
   context = "Set-Value"
-  name = "donkey"
-  value = "true"
-  type = "boolean"
+  name = "name"
+  value = "\"Akhilesh1\""
+  type = "string"
 }
 
 pred execute[e:Execution] {
