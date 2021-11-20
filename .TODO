@@ -2,12 +2,20 @@
   - [x] Takes a JS file, parses it and constructs an execution.json file
   - [x] Takes the execution.json file and converts to alloy predicate & function calls
 
-- [ ] Work on v1 of the structure of the execution.json
+- [x] Work on v1 of the structure of the execution.json
 
 - [x] Work on v1 of the "PREDEFINED" in alloy
 
 - [x] Work on v1 of the "COMPILED" in alloy
 
-- [ ] Wire "seri" to read the output of alloy and check if any counterexamples show up
+- [x] Wire "seri" to read the output of alloy and check if any counterexamples show up
+
+### NEXT TODO
 
 - [ ] Switch over to TypeScript
+
+- [ ] Find an ast generator and start using it to create a stripped down JSON of the generated AST
+
+- [ ] Create a tool which takes the JSON and create an Alloy representation of the JSON
+
+- [ ] Write some assertions that would directly check properties on the compiled alloy code

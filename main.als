@@ -55,7 +55,7 @@ one sig L2 extends Line {}{
 }
 
 one sig L3 extends Line {}{
-  context = "Init-Constant"
+  context = "Init-Variable"
   name = "name"
   value = "\"Akhilesh\""
   type = "string"

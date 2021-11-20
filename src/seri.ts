@@ -1,22 +1,22 @@
 // Command Line Tools
 // REGULAR EXPRESSION: const [A-z] = ["'`]?\w+["'`]?;
 // Imports
-const fs = require('fs');
-const path = require('path');
-const prettier = require('prettier');
+import fs from 'fs';
+import path from 'path';
+import prettier from 'prettier';
 
 // Helper function
-const getType = s => 
+const getType = (s: string) => 
   (s==="true" || s==="false")              ? "boolean" :
   (s[0]==='"' || s[0]==="'" || s[0]==="`") ? "string"  :
   "number"
 
-const getContext = s => 
+const getContext = (s: string) => 
   s==="const" ? "Init-Constant" :
   s==="let"   ? "Init-Variable" :
   "Set-Value"
 
-const generateLs = num => {
+const generateLs = (num: number) => {
   let res = "";
   for (let i=1; i<=num; i++) {
     if (i!==num) {

@@ -13,7 +13,7 @@
       "type": "number"
     },
     {
-      "context": "Init-Constant",
+      "context": "Init-Variable",
       "name": "name",
       "value": "\"Akhilesh\"",
       "type": "string"

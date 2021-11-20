@@ -4,8 +4,8 @@
   "description": "A tool to find bugs in JavaScript & React using Formal verification",
   "main": "seri.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node seri",
+    "test": "tsc && node dist/index",
+    "start": "tsc && node dist/seri",
     "prettier": "prettier main.js"
   },
   "repository": {
@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/AkhileshNS/seri#readme",
   "devDependencies": {
-    "prettier": "^2.4.1"
+    "@types/node": "^16.11.9",
+    "@types/prettier": "^2.4.2",
+    "prettier": "^2.4.1",
+    "typescript": "^4.5.2"
   }
 }
