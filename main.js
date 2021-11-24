@@ -1,4 +1,2 @@
-const num = 2;
-let age = 21;
-let name = "Akhilesh";
-name = "Akhilesh1";
+const a = 1;
+a = 2;

@@ -1,28 +1,40 @@
 {
-  "lines": [
+  "type": "Program",
+  "body": [
     {
-      "context": "Init-Constant",
-      "name": "num",
-      "value": "2",
-      "type": "number"
+      "type": "VariableDeclaration",
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "id": {
+            "type": "Identifier",
+            "name": "a"
+          },
+          "init": {
+            "type": "Literal",
+            "value": 1,
+            "raw": "1"
+          }
+        }
+      ],
+      "kind": "const"
     },
     {
-      "context": "Init-Variable",
-      "name": "age",
-      "value": "21",
-      "type": "number"
-    },
-    {
-      "context": "Init-Variable",
-      "name": "name",
-      "value": "\"Akhilesh\"",
-      "type": "string"
-    },
-    {
-      "context": "Set-Value",
-      "name": "name",
-      "value": "\"Akhilesh1\"",
-      "type": "string"
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "operator": "=",
+        "left": {
+          "type": "Identifier",
+          "name": "a"
+        },
+        "right": {
+          "type": "Literal",
+          "value": 2,
+          "raw": "2"
+        }
+      }
     }
-  ]
+  ],
+  "sourceType": "script"
 }
