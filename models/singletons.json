@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "singletons": {
+    "Program": [{
+      "sourceType": "script",
+      "body": ["VariableDeclaration$0", "ExpressionStatement$0"]
+    }],
+    "VariableDeclaration": [{
+      "kind": "let",
+      "declarations": ["VariableDeclarator$0"]
+    }],
+    "VariableDeclarator": [{
+      "id": "Identifier$0",
+      "init": "Literal$0"
+    }],
+    "AssignmentExpression": [{
+      "operator": "=",
+      "left": "Identifier$1",
+      "right": "Literal$1"
+    }],
+    "ExpressionStatement": [{
+      "expression": "AssignmentExpression$0"
+    }],
+    "Identifier": [{
+      "name": "a"
+    }, {
+      "name": "a"
+    }],
+    "Literal": [{
+      "value": "1",
+      "raw": "1"
+    }, {
+      "value": "2",
+      "raw": "2"
+    }]
+  }
+}

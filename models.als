@@ -1,19 +1,15 @@
 /* --- SIGNATURES --- */
 sig Program {
   sourceType: one String,
-  body: seq Instruction
+  body: seq VariableDeclaration + ExpressionStatement
 }
 
-abstract sig Instruction {}
-
-sig VariableDeclaration extends Instruction {
+sig VariableDeclaration {
   kind: one String,
-  declarations: seq Declaration
+  declarations: seq VariableDeclarator
 }
 
-abstract sig Declaration {}
-
-sig VariableDeclarator extends Declaration {
+sig VariableDeclarator {
   id: one Identifier,
   init: one Literal,
 }
@@ -27,7 +23,7 @@ sig Literal {
   raw: one String,
 }
 
-sig ExpressionStatement extends Instruction {
+sig ExpressionStatement {
   expression: one AssignmentExpression
 }
 

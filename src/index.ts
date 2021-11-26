@@ -4,6 +4,7 @@
 import {Command} from 'commander';
 import {version} from '../package.json';
 import { parseAction } from './actions/parse';
+import { generateAction } from './actions/generate';
 
 /* --- MAIN PROGRAM --- */
 const program = new Command();
@@ -17,6 +18,9 @@ program
   .action(parseAction)
 
 // Step 2: Takes the models/ast.json and generates a models/signatures.json file and a models/singletons.json file
-
+program
+  .command("generate")
+  .description("Takes the models/ast.json (If it exists) and generates a models/signatures.json file, a models/singletons.json file and a models/models.als file")
+  .action(generateAction)
 
 program.parse(process.argv);
