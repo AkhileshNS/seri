@@ -1,20 +1,9 @@
 /* --- IMPORTS --- */
-import path from 'path';
+import path from "path";
+import fs from "fs-extra";
 import {parse} from 'acorn';
 
 /* --- HELPER FUNCTIONS --- */
-
-// Function to get command line options from the passed args
-// Assuming "seri main.js" is executed on the command line 
-// () -> {path: <FULLPATH to main.js>} | <FULLPATH to main.js> could be "C:\_WORKING\Development\seri\main.js"
-interface IOptions {
-  path: string;
-}
-export const getOptions = (): IOptions => {
-  // Get the passed path which is the last element in process.argv
-  const passedPath = process.argv[process.argv.length-1];
-  return {path: path.join(process.cwd(), passedPath)}
-}
 
 // [IN-PLACE] USE WITH CARE
 // Recursive function to remove "start" and "end"
@@ -46,5 +35,25 @@ const customStringify = (ast: acorn.Node) => {
 export const getAST = (content: string): string => 
   customStringify(parse(content, {
     ecmaVersion: 2020, locations: false, ranges: false
-  })); 
+  }));
 
+/* -- CONSTANTS --- */
+const supported = ["javascript"];
+
+/* --- MAIN ACTION --- */
+interface IOptions {
+  language: string;
+}
+
+export const parseAction = (source: string, options: IOptions) => {
+  if (!supported.includes(options.language)) {
+    console.error(`[ERROR] Language not supported (Supported languages: [${supported.join(", ")}])`);
+    return;
+  }
+
+  /* STEP: */ const filepath = path.join(process.cwd(), source);
+  /* STEP: */ const content = fs.readFileSync(filepath, "utf8");
+  /* STEP: */ const parsedContent = getAST(content);
+  /* STEP: */ fs.outputFileSync(path.join(process.cwd(), "models/ast.json"), parsedContent, "utf-8");
+  console.log(`[SUCCESS] Compiled consolidated abstract syntax tree from '${source}' and placed it in models/ast.json`)
+}
