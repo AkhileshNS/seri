@@ -4,14 +4,14 @@ sig Program {
   body: seq Instruction
 }
 
-sig Instruction {}
+abstract sig Instruction {}
 
 sig VariableDeclaration extends Instruction {
   kind: one String,
   declarations: seq Declaration
 }
 
-sig Declaration {} 
+abstract sig Declaration {}
 
 sig VariableDeclarator extends Declaration {
   id: one Identifier,
@@ -23,11 +23,9 @@ sig Identifier {
 }
 
 sig Literal {
-  value: one Value,
+  value: one String,
   raw: one String,
 }
-
-sig Value {}
 
 sig ExpressionStatement extends Instruction {
   expression: one AssignmentExpression
@@ -40,14 +38,22 @@ sig AssignmentExpression {
 }
 
 /* --- SINGLETONS --- */
-one sig P1 extends Program {} {
-  sourceType = "script"
-  body = 1->I1 + 2->I2
+one sig Id1 extends Identifier {} {
+  name = "a"
 }
 
-one sig I1 extends VariableDeclaration {} {
-  kind = "const"
-  declarations = 1->D1
+one sig Li1 extends Literal {} {
+  value = "1"
+  raw = "1"
+}
+
+one sig Id2 extends Identifier {} {
+  name = "a"
+}
+
+one sig Li2 extends Literal {} {
+  value = "2"
+  raw = "2"
 }
 
 one sig D1 extends VariableDeclarator {} {
@@ -55,19 +61,13 @@ one sig D1 extends VariableDeclarator {} {
   init = Li1
 }
 
-one sig Id1 extends Identifier {} {
-  name = "a"
+fun I1declarations : seq Declaration {
+  1->D1
 }
 
-one sig Li1 extends Literal {} {
-  value = V1
-  raw = "1"
-}
-
-one sig V1 extends Value {} {}
-
-one sig I2 extends ExpressionStatement {} {
-  expression = AE1
+one sig I1 extends VariableDeclaration {} {
+  kind = "const"
+  declarations = I1declarations
 }
 
 one sig AE1 extends AssignmentExpression {} {
@@ -76,13 +76,19 @@ one sig AE1 extends AssignmentExpression {} {
   right = Li2
 }
 
-one sig Id2 extends Identifier {} {
-  name = "a"
+one sig I2 extends ExpressionStatement {} {
+  expression = AE1
 }
 
-one sig Li2 extends Literal {} {
-  value = V2
-  raw = "2"
+fun P1body : seq Instruction {
+  1->I1 + 2->I2
+} 
+
+one sig P1 extends Program {} {
+  sourceType = "script"
+  body = P1body
 }
 
-one sig V2 extends Value {} {}
+// */
+
+run {}

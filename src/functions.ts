@@ -47,3 +47,4 @@ export const getAST = (content: string): string =>
   customStringify(parse(content, {
     ecmaVersion: 2020, locations: false, ranges: false
   })); 
+

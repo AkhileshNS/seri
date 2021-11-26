@@ -1,0 +1,68 @@
+{
+  "signatures": {
+    "Program": {
+      "sourceType": "one String",
+      "body": "seq Instruction"
+    },
+    "Instruction": {},
+    "VariableDeclaration extends Instruction": {
+      "kind": "one String",
+      "declarations": "seq Declaration"
+    },
+    "Declaration": {}, 
+    "VariableDeclarator extends Declaration": {
+      "id": "one Identifier",
+      "init": "one Literal"
+    },
+    "Identifier": {
+      "name": "one String"
+    },
+    "Literal": {
+      "value": "one Value",
+      "raw": "one String"
+    },
+    "Value": {},
+    "ExpressionStatement extends Instruction": {
+      "expression": "one AssignmentExpression"
+    },
+    "AssignmentExpression": {
+      "operator": "one String",
+      "left": "one Identifier",
+      "right": "one Literal"
+    }
+  },
+  "singletons": {
+    "Program": [{
+      "sourceType": "script",
+      "body": ["VariableDeclaration$0", "ExpressionStatement$0"]
+    }],
+    "VariableDeclaration": [{
+      "kind": "const",
+      "declarations": ["VariableDeclarator$0"]
+    }],
+    "ExpressionStatement": [{
+      "expression": "AssignmentExpression$0"
+    }],
+    "VariableDeclarator": [{
+      "id": "Identifier$0",
+      "init": "Literal$0"
+    }],
+    "Identifier": [{
+      "name": "a"
+    },{
+      "name": "a"
+    }],
+    "Literal": [{
+      "value": "Value$0",
+      "raw": "1"
+    },{
+      "value": "Value$1",
+      "raw": "2"
+    }],
+    "AssignmentExpression": [{
+      "operator": "=",
+      "left": "Identifier$1",
+      "right": "Literal$1"
+    }]
+  }
+}
