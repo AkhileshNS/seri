@@ -81,9 +81,8 @@ one sig Li2 extends Literal {} {
   raw = "2"
 }
 
-// */
-
-run {
+/* --- INVARIANTS --- */
+pred invariants {
   no P:Program              | P not in {P1}
   no V:VariableDeclaration  | V not in {I1}
   no V:VariableDeclarator   | V not in {D1}
@@ -92,3 +91,16 @@ run {
   no I:Identifier           | I not in {Id1 + Id2}
   no L:Literal              | L not in {Li1 + Li2} 
 }
+
+/* --- ASSERTIONS --- */
+assert ConstantsNeverChange {
+  invariants => (
+    // Start working ON Assertion here
+    all V:VariableDeclaration | V.kind in {"let" + "const"}
+  )
+}
+
+check ConstantsNeverChange
+
+/* --- RUNS --- */
+run with invariants
