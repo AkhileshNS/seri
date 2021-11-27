@@ -46,14 +46,17 @@ interface IOptions {
 }
 
 export const parseAction = (source: string, options: IOptions) => {
-  if (!supported.includes(options.language)) {
-    console.error(`[ERROR] Language not supported (Supported languages: [${supported.join(", ")}])`);
-    return;
-  }
+  try {
+    if (!supported.includes(options.language)) {
+      throw new Error(`Language not supported (Supported languages: [${supported.join(", ")}])`);
+    }
 
-  /* STEP: */ const filepath = path.join(process.cwd(), source);
-  /* STEP: */ const content = fs.readFileSync(filepath, "utf8");
-  /* STEP: */ const parsedContent = getAST(content);
-  /* STEP: */ fs.outputFileSync(path.join(process.cwd(), "models/ast.json"), parsedContent, "utf-8");
-  console.log(`[SUCCESS] Compiled consolidated abstract syntax tree from '${source}' and placed it in models/ast.json`)
+    /* STEP 1: */ const filepath = path.join(process.cwd(), source);
+    /* STEP 2: */ const content = fs.readFileSync(filepath, "utf8");
+    /* STEP 3: */ const parsedContent = getAST(content);
+    /* STEP 4: */ fs.outputFileSync(path.join(process.cwd(), "models/ast.json"), parsedContent, "utf-8");
+    console.log(`Compiled consolidated abstract syntax tree from '${source}' and placed it in models/ast.json`)
+  } catch (err) {
+    console.error(err);
+  }
 }
