@@ -43,11 +43,6 @@ one sig P1 extends Program {} {
   body = 0->I1 + 1->I2
 }
 
-one sig I1 extends VariableDeclaration {} {
-  kind = "let"
-  declarations = 0->D1
-}
-
 one sig D1 extends VariableDeclarator {} {
   id = Id1
   init = Li1
@@ -79,6 +74,11 @@ one sig Id2 extends Identifier {} {
 one sig Li2 extends Literal {} {
   value = "2"
   raw = "2"
+}
+
+one sig I1 extends VariableDeclaration {} {
+  kind = "let"
+  declarations = 0->D1
 }
 
 /* --- INVARIANTS --- */
