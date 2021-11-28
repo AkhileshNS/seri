@@ -1,3 +1,7 @@
+# Seri outputs
+models/
+alloy_example_output.xml
+
 # Logs
 logs
 *.log
