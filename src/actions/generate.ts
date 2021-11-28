@@ -41,7 +41,9 @@ export const generateAction = () => {
     // STEP 4: Generate the models/models.als file
     generateAlloyModel();
     console.log("Generated an alloy model from 'models/signatures.json' & 'models/singletons.json' and placed it in 'models/models.als'");
+    return true;
   } catch (err) {
     console.error(err);
+    return false;
   }
 }

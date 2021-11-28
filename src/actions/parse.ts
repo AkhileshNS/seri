@@ -56,7 +56,9 @@ export const parseAction = (source: string, options: IOptions) => {
     /* STEP 3: */ const parsedContent = getAST(content);
     /* STEP 4: */ fs.outputFileSync(path.join(process.cwd(), "models/ast.json"), parsedContent, "utf-8");
     console.log(`Compiled consolidated abstract syntax tree from '${source}' and placed it in 'models/ast.json'`)
+    return true;
   } catch (err) {
     console.error(err);
+    return false;
   }
 }
