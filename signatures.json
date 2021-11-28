@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "signatures": {
+    "Program": {
+      "sourceType": "String",
+      "body": ["VariableDeclaration", "ExpressionStatement"]
+    },
+    "VariableDeclaration": {
+      "kind": "String",
+      "declarations": ["VariableDeclarator"]
+    },
+    "VariableDeclarator": {
+      "id": "Identifier",
+      "init": "Literal"
+    },
+    "Identifier": {
+      "name": "String"
+    },
+    "Literal": {
+      "value": "String",
+      "raw": "String"
+    },
+    "ExpressionStatement": {
+      "expression": "AssignmentExpression"
+    },
+    "AssignmentExpression": {
+      "operator": "String",
+      "left": "Identifier",
+      "right": "Literal"
+    }
+  }
+}

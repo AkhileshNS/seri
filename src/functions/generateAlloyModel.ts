@@ -1,5 +1,5 @@
 import path from 'path';
-import fs from 'fs';
+import fs from 'fs-extra';
 import {ISignature, ISignatures, ISingletons} from '../actions/generate';
 
 /* --- HELPER FUNCTIONS --- */
@@ -82,5 +82,5 @@ ${getInvariants(singletons)}
 run with invariants
   `;
 
-  fs.writeFileSync(path.join(process.cwd(), "models/models.als"), models, "utf8");
+  fs.outputFileSync(path.join(process.cwd(), "models/models.als"), models, "utf8");
 }

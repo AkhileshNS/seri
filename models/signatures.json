@@ -2,23 +2,11 @@
   "version": "1.0.0",
   "signatures": {
     "Program": {
-      "sourceType": "String",
-      "body": ["VariableDeclaration", "ExpressionStatement"]
-    },
-    "VariableDeclaration": {
-      "kind": "String",
-      "declarations": ["VariableDeclarator"]
-    },
-    "VariableDeclarator": {
-      "id": "Identifier",
-      "init": "Literal"
-    },
-    "Identifier": {
-      "name": "String"
-    },
-    "Literal": {
-      "value": "String",
-      "raw": "String"
+      "body": [
+        "VariableDeclaration",
+        "ExpressionStatement"
+      ],
+      "sourceType": "String"
     },
     "ExpressionStatement": {
       "expression": "AssignmentExpression"
@@ -27,6 +15,30 @@
       "operator": "String",
       "left": "Identifier",
       "right": "Literal"
+    },
+    "Literal": {
+      "value": "String",
+      "raw": "String"
+    },
+    "Identifier": {
+      "name": "String"
+    },
+    "VariableDeclaration": {
+      "declarations": [
+        "VariableDeclarator"
+      ],
+      "kind": "String"
+    },
+    "VariableDeclarator": {
+      "id": "Identifier",
+      "init": "ArrayExpression"
+    },
+    "ArrayExpression": {
+      "elements": [
+        "Literal",
+        "Literal",
+        "Literal"
+      ]
     }
   }
 }

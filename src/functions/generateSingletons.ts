@@ -67,5 +67,5 @@ export const generateSingletons = () => {
 
   const singletons = createSingletons(ast, signatures);
   const singletonsPath = path.join(process.cwd(), "models/singletons.json");
-  fs.writeFileSync(singletonsPath, JSON.stringify(singletons, null, 2), "utf8");
+  fs.outputFileSync(singletonsPath, JSON.stringify(singletons, null, 2), "utf8");
 }

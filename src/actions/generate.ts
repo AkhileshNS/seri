@@ -1,6 +1,7 @@
 /* --- IMPORTS --- */
 import fs from 'fs-extra';
 import path from 'path';
+import { generateSignatures } from './../functions/generateSignatures';
 import { generateSingletons } from '../functions/generateSingletons';
 import { generateAlloyModel } from '../functions/generateAlloyModel';
 
@@ -30,6 +31,7 @@ export const generateAction = () => {
     }
 
     // STEP 2: Generate the models/signatures.json file
+    generateSignatures();
 
     // STEP 3: Generate the models/singletons.json file
     generateSingletons();
