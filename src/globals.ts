@@ -4,8 +4,8 @@ export const properties =
 /* --- ASSERTIONS --- */
 assert ConstantsNeverChange {
   invariants => (
-    // Start working ON Assertion here
-    all V:VariableDeclaration | V.kind in {"var" + "val"}
+    all V:VariableDeclaration, L:VariableDeclarator | V.kind = "const" => (
+      all AE:AssignmentExpression | AE.operator = "=" and not (AE.left.name = L.id.name))
   )
 }
 
