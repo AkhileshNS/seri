@@ -1,0 +1,94 @@
+{
+  "type": "Table",
+    "name": "users",
+    "columns": [
+      {
+        "type": "Column",
+        "name": "id",
+        "_type": {
+          "type": "Database",
+          "datatype": "int",
+          "width": 11
+        },
+        "options": {
+          "type": "Options",
+          "nullable": false,
+          "autoincrement": true
+        }
+      },
+      {
+        "type": "Column",
+        "name": "nickname",
+        "_type": {
+          "type": "Database",
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "type": "Options",
+          "nullable": false
+        }
+      },
+      {
+        "type": "Column",
+        "name": "deleted_at",
+        "_type": {
+          "type": "Database",
+          "datatype": "timestamp",
+          "fractional": 0
+        },
+        "options": {
+          "type": "Options",
+          "nullable": true
+        }
+      },
+      {
+        "type": "Column",
+        "name": "created_at",
+        "_type": {
+          "type": "Database",
+          "datatype": "timestamp",
+          "fractional": 0
+        },
+        "options": {
+          "type": "Options",
+          "nullable": false,
+          "default": "CURRENT_TIMESTAMP"
+        }
+      },
+      {
+        "type": "Column",
+        "name": "updated_at",
+        "_type": {
+          "type": "Database",
+          "datatype": "timestamp",
+          "fractional": 0
+        },
+        "options": {
+          "type": "Options",
+          "nullable": true
+        }
+      }
+    ],
+    "primaryKey": {
+      "type": "PrimaryKey",
+      "columns": [
+        {
+          "column": "id",
+          "type": "KeyColumn"
+        }
+      ]
+    },
+    "uniqueKeys": [
+      {
+        "type": "UniqueKeys",
+        "columns": [
+          {
+            "column": "nickname",
+            "type": "KeyColumn"
+          }
+        ],
+        "name": "unq_nick"
+      }
+    ]
+  }
