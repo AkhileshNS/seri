@@ -49,7 +49,8 @@ const createSingletons = (ast: any, {signatures}: ISignatures): ISingletons => {
         singleton[prop] = createReferences(top[prop], singletons);
         top[prop].forEach((topBranch: any) => stack.push(topBranch));
       } else if (prop !== "type") {
-        singleton[prop] = JSON.stringify(top[prop].toString());
+        let property = top[prop]===null ? "null" : top[prop];
+        singleton[prop] = JSON.stringify(property.toString());
       }
     }
     singletons[top.type].push(singleton);

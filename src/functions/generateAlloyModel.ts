@@ -28,11 +28,15 @@ sig ${sig} {
 
 const stringifySingletonProperty = (prop: string | string[]) => {
   if (typeof prop === "string") {return prop;}
-  return prop.map((val, i) => `${i}->${val}`).join(" + ")
+  return prop.map((val, i) => `${i}->${val}`).join(" + ") 
 } 
 
 const stringifySingleton = (signature: ISignature) => 
-  Object.keys(signature).map(prop => `  ${prop} = ${stringifySingletonProperty(signature[prop])}`).join("\n");
+  Object.keys(signature).map(prop => {
+    const property = stringifySingletonProperty(signature[prop]);
+    if (property==="") {return "";}
+    return `  ${prop} = ${property}`;
+  }).join("\n");
 
 const stringifySingletons = ({singletons}: ISingletons) => {
   const res = [];
